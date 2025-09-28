@@ -45,12 +45,12 @@ public class GameService {
         }
 
         int newPosition = oldPosition + score;
-        boolean noSnakeAndLadder = true;
+        boolean onSnakeOrLadder = false;
         do {
             for (Snake snake : board.getSnakes()) {
                 if (newPosition == snake.getStart()) {
                     newPosition = snake.getEnd();
-                    noSnakeAndLadder = false;
+                    onSnakeOrLadder = true;
                     break;
                 }
             }
@@ -58,10 +58,10 @@ public class GameService {
             for (Ladder ladder : board.getLadders()) {
                 if (newPosition == ladder.getEnd()) {
                     newPosition = ladder.getEnd();
-                    noSnakeAndLadder = false;
+                    onSnakeOrLadder = true;
                 }
             }
-        } while (noSnakeAndLadder);
+        } while (onSnakeOrLadder);
 
         return newPosition;
     }
