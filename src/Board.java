@@ -1,16 +1,21 @@
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class Board{
-    private ArrayList<Snake>snakes;
-    private  ArrayList<Ladder>ladders;
+    private List<Snake>snakes;
+    private  List<Ladder>ladders;
     private final int size = 100;
 
-    public ArrayList<Snake>getSnakes(){
+    public Board(List<Snake>snakes , List<Ladder>ladders){
+        this.snakes = snakes;
+        this.ladders = ladders;
+    }
+
+    public List<Snake>getSnakes(){
         return snakes;
     }
 
-    public ArrayList<Ladder>getLadders(){
+    public List<Ladder>getLadders(){
         return ladders;
     }
 
@@ -18,12 +23,12 @@ public class Board{
         return size;
     }
 
-    public void setSnakes(ArrayList<Snake>snakes){
-        this.snakes = snakes;
-    }
+    // public void setSnakes(ArrayList<Snake>snakes){
+    //     this.snakes = snakes;
+    // }
 
-    public void setLadders(ArrayList<Ladder>ladders){
-        this.ladders = ladders;
-    }
+    // public void setLadders(ArrayList<Ladder>ladders){
+    //     this.ladders = ladders;
+    // }
     
 }
