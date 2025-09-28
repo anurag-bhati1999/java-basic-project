@@ -31,7 +31,7 @@ public class Main {
         int numPlayers = scanner.nextInt();
         List<Player>players = new ArrayList<Player>();
         for(i=0;i<numPlayers;i++){
-            String name = scanner.nextLine();
+            String name = scanner.next();
             Player player = new Player(name);
             players.add(player);
         }
