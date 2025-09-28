@@ -10,6 +10,10 @@ public class GameService {
     public GameService(Board board, List<Player> players) {
         this.board = board;
         this.players = players;
+        for(Player player : players){
+            String id = player.getId();
+            this.positions.put(id,0);
+        }
     }
 
     public List<Player> getPlayers() {
