@@ -33,7 +33,7 @@ public class Main {
         }
 
         ParkingSpot v2SPot = parkingLot.parkVehicle(vehcile2);
-        if(v1SPot != null){
+        if(v2SPot != null){
             double fee = vehcile1.calculateFee(2);
             paymentStrategy.processPayment(fee);
             parkingLot.vacateSpot(vehcile2);
