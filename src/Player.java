@@ -8,11 +8,11 @@ public class Player {
         this.id = UUID.randomUUID();
     }
 
-    public getId(){
+    public String getId(){
         return id.toString();
     }
 
-    public getName(){
+    public String getName(){
         return name;
     }
 }
