@@ -7,7 +7,7 @@ public class Payment {
         this.paymentStrategy = paymentStrategy;
     }
     
-    public void processPayment() {
-        paymentStrategy.processPayment(amount);
+    public boolean processPayment() {
+        return paymentStrategy.processPayment(amount);
     }
 }

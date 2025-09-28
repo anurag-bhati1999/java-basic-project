@@ -1,6 +1,7 @@
 public class CreditPayment implements PaymentStrategy {
-    public void processPayment(double amount) {
+    public boolean processPayment(double amount) {
         System.out.println("Processing via credita for amount " + amount);
+        return true;
     }
 }
 

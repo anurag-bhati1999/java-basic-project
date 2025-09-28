@@ -1,6 +1,6 @@
-public class basicFeeStrategy {
+public class BasicFeeStrategy {
     public double calculateFee(String vehicleType, int duration){
-        switch (vehicltype.toLowerCase()) {
+        switch (vehicleType.toLowerCase()) {
             case "car":
                 return 10*duration;
             case "bus":

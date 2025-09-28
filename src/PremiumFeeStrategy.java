@@ -1,6 +1,6 @@
-public class premiumStrategy {
+public class PremiumFeeStrategy {
     public double calculateFee(String vehicleType, int duration){
-        switch (vehicltype.toLowerCase()) {
+        switch (vehicleType.toLowerCase()) {
             case "car":
                 return 100*duration;
             case "bus":
