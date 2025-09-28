@@ -11,9 +11,9 @@ public class GameService {
         this.board = board;
         this.players = players;
         this.positions = new HashMap<String, Integer>();
-        for(Player player : players){
+        for (Player player : players) {
             String id = player.getId();
-            this.positions.put(id,0);
+            this.positions.put(id, 0);
         }
     }
 
@@ -47,8 +47,10 @@ public class GameService {
         int newPosition = oldPosition + score;
         boolean onSnakeOrLadder = false;
         do {
+            onSnakeOrLadder = false;
             for (Snake snake : board.getSnakes()) {
                 if (newPosition == snake.getStart()) {
+
                     newPosition = snake.getEnd();
                     onSnakeOrLadder = true;
                     break;
@@ -56,9 +58,10 @@ public class GameService {
             }
 
             for (Ladder ladder : board.getLadders()) {
-                if (newPosition == ladder.getEnd()) {
+                if (newPosition == ladder.getStart()) {
                     newPosition = ladder.getEnd();
                     onSnakeOrLadder = true;
+                    break;
                 }
             }
         } while (onSnakeOrLadder);
@@ -74,8 +77,8 @@ public class GameService {
                 int oldPosition = this.getPositionOfPlayer(player);
                 int newPosition = getNewPosition(oldPosition, score);
                 setPositionOfPlayer(player, newPosition);
-                System.out.println("Player " + player.getName()
-                        + " score " + score + " position " + newPosition);
+                System.out.print(player.getName()
+                        + " score " + score + " position " + newPosition +" ");
 
                 if (newPosition == board.getSize()) {
                     System.err.println("Player " + player.getName() + " won.");
@@ -83,6 +86,7 @@ public class GameService {
                     break;
                 }
             }
+            System.out.println("");
         }
     }
 
