@@ -10,6 +10,7 @@ public class GameService {
     public GameService(Board board, List<Player> players) {
         this.board = board;
         this.players = players;
+        this.positions = new HashMap<String, Integer>();
         for(Player player : players){
             String id = player.getId();
             this.positions.put(id,0);
