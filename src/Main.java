@@ -13,6 +13,9 @@ public class Main {
         for(i=0;i<numSnakes;i++){
             int start = scanner.nextInt();
             int end = scanner.nextInt();
+            if(start <= end){
+                throw new IllegalArgumentException("Start of snake must be greater");
+            }
             Snake snake = new Snake(start, end);
             snakes.add(snake);
         }
@@ -23,6 +26,9 @@ public class Main {
         for(i=0;i<numLadders;i++){
             int start = scanner.nextInt();
             int end = scanner.nextInt();
+            if(start >= end){
+                throw new IllegalArgumentException("Start of snake ladder must be smaller");
+            }
             Ladder ladder = new Ladder(start ,end);
             ladders.add(ladder);
         }
