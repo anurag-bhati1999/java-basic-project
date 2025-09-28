@@ -14,14 +14,32 @@ public class Main {
 
         ParkingLot parkingLot = new ParkingLot(spots);
 
-        Vehicle vehcile1 = new Vehicle("1", "car");
-        Vehicle vehcile2 = new Vehicle("2", "bus");
-        Vehicle vehcile3 = new Vehicle("3", "bus");
-        Vehicle vehcile4 = new Vehicle("4", "car");
-        Vehicle vehcile5 = new Vehicle("5", "bus");
-        Vehicle vehcile6 = new Vehicle("6", "car");
+        Vehicle vehcile1 = new Vehicle("1", "car",new BasicFeeStrategy());
+        Vehicle vehcile2 = new Vehicle("2", "bus", new BasicFeeStrategy());
+        Vehicle vehcile3 = new Vehicle("3", "bus", new BasicFeeStrategy());
+        Vehicle vehcile4 = new Vehicle("4", "car", new BasicFeeStrategy());
+        Vehicle vehcile5 = new Vehicle("5", "bus", new PremiumFeeStrategy());
+        Vehicle vehcile6 = new Vehicle("6", "car", new PremiumFeeStrategy());
 
-        parkingLot.parkVehicle(vehcile1);
+        ParkingSpot v1SPot = parkingLot.parkVehicle(vehcile1);
+        Scanner scanner = new Scanner(System.in);
+        int paymentMethod = scanner.nextInt();
+        PaymentStrategy paymentStrategy = getPaymentStrategy(paymentMethod);
+
+        if(v1SPot != null){
+            double fee = vehcile1.calculateFee(1);
+            paymentStrategy.processPayment(fee);
+            parkingLot.vacateSpot(vehcile1);
+        }
+
+        ParkingSpot v2SPot = parkingLot.parkVehicle(vehcile2);
+        if(v1SPot != null){
+            double fee = vehcile1.calculateFee(2);
+            paymentStrategy.processPayment(fee);
+            parkingLot.vacateSpot(vehcile2);
+        }
+
+
 
     }
 

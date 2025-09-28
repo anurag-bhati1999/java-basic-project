@@ -1,4 +1,4 @@
-public class PremiumFeeStrategy {
+public class PremiumFeeStrategy implements  ParkingFeeStrategy {
     public double calculateFee(String vehicleType, int duration){
         switch (vehicleType.toLowerCase()) {
             case "car":
