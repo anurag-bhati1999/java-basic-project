@@ -1,4 +1,5 @@
-import  java.util.*;
+
+import java.util.*;
 
 public class Main {
 
@@ -21,5 +22,17 @@ public class Main {
         Vehicle vehcile6 = new Vehicle("6", "car");
 
         parkingLot.parkVehicle(vehcile1);
+
+    }
+
+    private static PaymentStrategy getPaymentStrategy(int strategy) {
+        switch (strategy) {
+            case 1:
+                return new CashPayment();
+            case 2:
+                return new CreditPayment();
+        }
+
+        return  new CashPayment();
     }
 }

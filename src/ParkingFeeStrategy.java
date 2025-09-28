@@ -1,3 +1,3 @@
 public interface ParkingFeeStrategy {
-    double calculateFees(String vehicleType, int duration);
+    double calculateFee(String vehicleType, int duration);
 }
