@@ -8,6 +8,7 @@ public class Board {
 
     public Board() {
         int i, j;
+        positions = new Symbol[size][size];
         for (i = 0; i < size; i++) {
             for (j = 0; j < size; j++) {
                 positions[i][j] = Symbol.E;
