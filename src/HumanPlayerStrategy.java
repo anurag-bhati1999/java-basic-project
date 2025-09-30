@@ -18,8 +18,6 @@ public class HumanPlayerStrategy implements PlayerStrategy {
                 return position;
             }
         }
-
-        board.markGameAsCompleted();
         return null;
     }
 }

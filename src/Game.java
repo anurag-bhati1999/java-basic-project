@@ -16,6 +16,12 @@ public class Game {
         while (!completed) {
             for (Player player : players) {
                 Position position = player.getStrategy().makeMove(board);
+                if (position == null) {
+                    board.markGameAsCompleted();
+                    completed = true;
+                    makeAnnouncement(board.getWinningSymbol());
+                    break;
+                }
                 board.markPosition(position, player.getSymbol());
                 board.changeGameStatus();
                 System.out.println(player.getName() + " with symbol " + player.getSymbol() + " turn.");
@@ -33,6 +39,7 @@ public class Game {
     private void makeAnnouncement(Symbol winningSymbol) {
         if (winningSymbol == null) {
             System.out.println("Match is draw or interrupted");
+            return;
         }
         for (Player player : players) {
             if (player.getSymbol() == winningSymbol) {
