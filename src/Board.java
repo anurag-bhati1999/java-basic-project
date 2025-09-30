@@ -3,6 +3,8 @@ public class Board {
 
     final int size = 3;
     Symbol positions[][];
+    boolean isGameCompleted;
+    Symbol winningSymbol;
 
     public Board() {
         int i, j;
@@ -11,6 +13,7 @@ public class Board {
                 positions[i][j] = Symbol.E;
             }
         }
+        this.isGameCompleted = false;
     }
 
     public boolean isValidMove(Position position) {
@@ -27,7 +30,7 @@ public class Board {
         return false;
     }
 
-    public Symbol getWinningSymbol() {
+    public Symbol findWinningSymbol() {
         int i, j;
         // Symbol positions[][] = this.positions;
 
@@ -85,16 +88,49 @@ public class Board {
         return true;
     }
 
-    public void printBoard(){
+    public void printBoard() {
         System.out.println("......BOARD_START.......");
-        int i,j;
-        for(i=0;i<size;i++){
-            for(j=0;j<size;j++){
+        int i, j;
+        for (i = 0; i < size; i++) {
+            for (j = 0; j < size; j++) {
                 System.err.print(positions[i][j] + "  ");
             }
             System.out.println("");
         }
         System.out.println("......BOARD_END.......");
+    }
+
+    public void changeGameStatus() {
+        Symbol winSymbol = this.findWinningSymbol();
+        if (winSymbol != null) {
+            this.isGameCompleted = true;
+            this.winningSymbol = winSymbol;
+        } else {
+            if (this.isBoardFull()) {
+                this.isGameCompleted = true;
+            }
+        }
+    }
+
+    private boolean isBoardFull() {
+        int i, j;
+        for (i = 0; i < size; i++) {
+            for (j = 0; j < size; j++) {
+                if (positions[i][j] == Symbol.E) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    public boolean isGameCompleted() {
+        return this.isGameCompleted;
+    }
+
+    public Symbol getWinningSymbol() {
+        return this.winningSymbol;
     }
 
 }

@@ -1,0 +1,30 @@
+import java.util.*;
+
+public class Game{
+    Board board;
+    List<Player>players;
+
+    public Game(List<Player>players){
+        this.board = new Board();
+        this.players = players;
+    }
+
+    public void play(){
+        for(Player player : players){
+            player.strategy.makeMove(board);
+            if(board.isGameCompleted){
+                makeAnnouncement(board.getWinningSymbol());
+            }
+        }
+    }
+
+    private void makeAnnouncement(Symbol winningSymbol){
+        for(Player player : players){
+            if(player.symbol == winningSymbol){
+                System.out.println("Player "+ player.name + " has won");
+            }
+        }
+        System.out.println("match is draw");
+    }
+
+}
