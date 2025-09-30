@@ -1,3 +1,3 @@
-enum Symbol {
+public enum Symbol {
     X,O,E;
 }
