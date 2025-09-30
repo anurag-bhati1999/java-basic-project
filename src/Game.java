@@ -18,7 +18,7 @@ public class Game {
                 Position position = player.getStrategy().makeMove(board);
                 board.markPosition(position, player.getSymbol());
                 board.changeGameStatus();
-                System.out.println(player.getName()+ " with symbol " + player.getSymbol() + " turn.");
+                System.out.println(player.getName() + " with symbol " + player.getSymbol() + " turn.");
                 board.printBoard();
                 System.out.println("");
                 if (board.isGameCompleted()) {

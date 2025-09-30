@@ -11,15 +11,15 @@ public class Player {
         this.strategy = builder.strategy;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public Symbol getSymbol(){
+    public Symbol getSymbol() {
         return symbol;
     }
 
-    public PlayerStrategy getStrategy(){
+    public PlayerStrategy getStrategy() {
         return strategy;
     }
 
@@ -39,12 +39,12 @@ public class Player {
             return this;
         }
 
-        public PlayerBuilder withStrategy(PlayerStrategy strategy){
+        public PlayerBuilder withStrategy(PlayerStrategy strategy) {
             this.strategy = strategy;
             return this;
         }
 
-        public Player build(){
+        public Player build() {
             return new Player(this);
         }
 
