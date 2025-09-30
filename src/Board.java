@@ -8,7 +8,7 @@ public class Board {
         int i, j;
         for (i = 0; i < size; i++) {
             for (j = 0; j < size; j++) {
-                postions[i][j] = Symbol.EMPTY;
+                postions[i][j] = Symbol.E;
             }
         }
     }

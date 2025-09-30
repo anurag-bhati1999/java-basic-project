@@ -1,3 +1,3 @@
 enum Symbol {
-    X,O,EMPTY
+    X,O,E;
 }
