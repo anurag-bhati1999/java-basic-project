@@ -13,4 +13,18 @@ public class Board {
         }
     }
 
+    public boolean isValidMove(Position position) {
+        int x = position.x;
+        int y = position.y;
+
+        if (x >= 0 && y >= 0
+                && x < this.size && y < this.size
+                && this.postions[x][y] == Symbol.E) {
+            
+            return true;
+        }
+
+        return false;
+    }
+
 }

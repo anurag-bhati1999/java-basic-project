@@ -10,6 +10,10 @@ public class HumanPlayerStrategy implements PlayerStrategy {
         int y= scanner.nextInt();
         Position position = new Position(x,y);
 
+        boolean isValid = board.isValidMove(position);
+        if(!isValid){
+            System.out.println("row " + x + " column " + y + " is invalid.");
+        }
         return position;
     }
 }
