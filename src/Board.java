@@ -138,4 +138,10 @@ public class Board {
         return this.winningSymbol;
     }
 
+    public void markPosition(Position position, Symbol symbol){
+        int x = position.x;
+        int y = position.y;
+        positions[x][y] = symbol;
+    }
+
 }

@@ -15,7 +15,6 @@ public class HumanPlayerStrategy implements PlayerStrategy {
             if (!isValid) {
                 System.out.println("row " + x + " column " + y + " is invalid. Please enter again");
             } else {
-                board.changeGameStatus();
                 return position;
             }
         }

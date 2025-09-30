@@ -11,7 +11,9 @@ public class Game{
 
     public void play(){
         for(Player player : players){
-            player.strategy.makeMove(board);
+            Position position = player.strategy.makeMove(board);
+            board.markPosition(position, player.symbol);
+            board.changeGameStatus();
             board.printBoard();
             if(board.isGameCompleted){
                 makeAnnouncement(board.getWinningSymbol());
