@@ -20,6 +20,9 @@ public class Game{
     }
 
     private void makeAnnouncement(Symbol winningSymbol){
+        if(winningSymbol == null){
+            System.out.println("Match is draw or interrupted");
+        }
         for(Player player : players){
             if(player.symbol == winningSymbol){
                 System.out.println("Player "+ player.name + " has won");

@@ -104,13 +104,17 @@ public class Board {
     public void changeGameStatus() {
         Symbol winSymbol = this.findWinningSymbol();
         if (winSymbol != null) {
-            this.isGameCompleted = true;
+            this.markGameAsCompleted();
             this.winningSymbol = winSymbol;
         } else {
             if (this.isBoardFull()) {
-                this.isGameCompleted = true;
+                this.markGameAsCompleted();
             }
         }
+    }
+
+    public void markGameAsCompleted(){
+        this.isGameCompleted = true;
     }
 
     private boolean isBoardFull() {
