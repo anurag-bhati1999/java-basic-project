@@ -2,9 +2,9 @@
 public class Board {
 
     final int size = 3;
-    Symbol positions[][];
-    boolean isGameCompleted;
-    Symbol winningSymbol;
+    private Symbol positions[][];
+    private boolean isGameCompleted;
+    private Symbol winningSymbol;
 
     public Board() {
         int i, j;

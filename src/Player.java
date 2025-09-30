@@ -1,14 +1,26 @@
 
 public class Player {
 
-    String name;
-    Symbol symbol;
-    PlayerStrategy strategy;
+    private String name;
+    private Symbol symbol;
+    private PlayerStrategy strategy;
 
     private Player(PlayerBuilder builder) {
         this.name = builder.name;
         this.symbol = builder.symbol;
         this.strategy = builder.strategy;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public Symbol getSymbol(){
+        return symbol;
+    }
+
+    public PlayerStrategy getStrategy(){
+        return strategy;
     }
 
     public static class PlayerBuilder {
