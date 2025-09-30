@@ -2,13 +2,13 @@
 public class Board {
 
     final int size = 3;
-    Symbol postions[][];
+    Symbol positions[][];
 
     public Board() {
         int i, j;
         for (i = 0; i < size; i++) {
             for (j = 0; j < size; j++) {
-                postions[i][j] = Symbol.E;
+                positions[i][j] = Symbol.E;
             }
         }
     }
@@ -19,12 +19,70 @@ public class Board {
 
         if (x >= 0 && y >= 0
                 && x < this.size && y < this.size
-                && this.postions[x][y] == Symbol.E) {
-            
+                && this.positions[x][y] == Symbol.E) {
+
             return true;
         }
 
         return false;
+    }
+
+    public Symbol getWinningSymbol() {
+        int i, j;
+        // Symbol positions[][] = this.positions;
+
+        //all rows
+        for (i = 0; i < this.size; i++) {
+            if (isWinningLine(positions[i])) {
+                return positions[i][0];
+            }
+        }
+
+        // all columns
+        for (i = 0; i < size; i++) {
+            Symbol column[] = new Symbol[size];
+            for (j = 0; j < size; j++) {
+                column[j] = positions[j][i];
+            }
+            if (isWinningLine(column)) {
+                return positions[0][i];
+            }
+        }
+
+        //1st diagonal
+        Symbol dig1[] = new Symbol[size];
+        i = 0;
+        j = 0;
+        while (i < size && j < size) {
+            dig1[i] = positions[i++][j++];
+        }
+        if (isWinningLine(dig1)) {
+            return positions[0][0];
+        }
+
+        //2nd 
+        Symbol dig2[] = new Symbol[size];
+        i = 0;
+        j = size - 1;
+        while (i < size && j >= 0) {
+            dig2[i] = positions[i++][j--];
+        }
+        if (isWinningLine(dig2)) {
+            return positions[0][size - 1];
+        }
+
+        return null;
+    }
+
+    private boolean isWinningLine(Symbol line[]) {
+        Symbol first = line[0];
+        for (Symbol x : line) {
+            if (x != first) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
 }
