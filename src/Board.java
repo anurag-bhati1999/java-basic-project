@@ -85,4 +85,16 @@ public class Board {
         return true;
     }
 
+    public void printBoard(){
+        System.out.println("......BOARD_START.......");
+        int i,j;
+        for(i=0;i<size;i++){
+            for(j=0;j<size;j++){
+                System.err.print(positions[i][j] + "  ");
+            }
+            System.out.println("");
+        }
+        System.out.println("......BOARD_END.......");
+    }
+
 }
