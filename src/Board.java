@@ -80,6 +80,9 @@ public class Board {
 
     private boolean isWinningLine(Symbol line[]) {
         Symbol first = line[0];
+        if(first == Symbol.E){
+            return false;
+        }
         for (Symbol x : line) {
             if (x != first) {
                 return false;
