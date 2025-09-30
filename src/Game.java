@@ -12,6 +12,7 @@ public class Game{
     public void play(){
         for(Player player : players){
             player.strategy.makeMove(board);
+            board.printBoard();
             if(board.isGameCompleted){
                 makeAnnouncement(board.getWinningSymbol());
             }
