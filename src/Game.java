@@ -37,6 +37,9 @@ public class Game {
                 continue;
             }
 
+            System.out.println("next is " + next);
+            System.out.println("Map " + snake.positions);
+            System.out.println("contains " + snake.positions.containsKey(next));
             if (snake.positions.containsKey(next)) {
                 isGameRunning = false;
                 System.out.println("You ate yourself");
@@ -58,16 +61,16 @@ public class Game {
                 this.snake.positions.remove(tail);
             }
 
-            this.currScore = this.snake.body.size() - 1;
             this.snake.body.addFirst(next);
             this.snake.positions.put(next, true);
+
+            this.currScore = this.snake.body.size() - 1;
             printPosistions();
 
         }
     }
 
     private void printPosistions() {
-        System.out.println("......XXXX.....");
         System.out.println("Score is " + this.currScore);
         System.out.println("Positions " + snake.body);
         System.out.println("......XXXX.....");
