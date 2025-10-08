@@ -13,11 +13,4 @@ public class Snake {
         positions.put(init, true);
     }
 
-    public Deque<Position> getBody(){
-        return body;
-    }
-
-    public Map<Position, Boolean>getPositions(){
-        return positions;
-    }
 }

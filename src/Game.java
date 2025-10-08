@@ -1,4 +1,6 @@
 
+
+
 public class Game {
 
     private Snake snake;
@@ -61,8 +63,17 @@ public class Game {
             this.currScore = this.snake.body.size() - 1;
             this.snake.body.addFirst(next);
             this.snake.positions.put(next, true);
+            printPosistions();
 
         }
+    }
+
+    private void printPosistions(){
+        System.out.println("......XXXX.....");
+        System.out.println("Score is " + this.currScore);
+        System.out.println("Positions "+ snake.body);
+        System.out.println("......XXXX.....");
+
     }
 
 }
