@@ -12,7 +12,7 @@ public class Board {
 
     public static Board getInstance(int width, int height) {
         if (instance == null) {
-            return new Board(width, height);
+            instance = new Board(width, height);
         }
 
         return instance;
