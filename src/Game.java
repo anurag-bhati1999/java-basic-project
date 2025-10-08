@@ -37,10 +37,9 @@ public class Game {
                 continue;
             }
 
-            System.out.println("next is " + next);
-            System.out.println("Map " + snake.positions);
-            System.out.println("contains " + snake.positions.containsKey(next));
-            if (snake.positions.containsKey(next)) {
+            if (snake.positions.containsKey(next)
+                    && !(next.col == tail.col
+                    && next.row == tail.row)) {
                 isGameRunning = false;
                 System.out.println("You ate yourself");
                 continue;
