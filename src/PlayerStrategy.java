@@ -1,3 +1,3 @@
 public interface PlayerStrategy{
-    public Position getNextPosition();
+    public Position getNextPosition(Position curr);
 }
