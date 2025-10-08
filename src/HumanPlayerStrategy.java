@@ -19,6 +19,7 @@ public class HumanPlayerStrategy implements PlayerStrategy {
                 case "R":
                     return new Position(curr.row, curr.col + 1);
                 default:
+                    System.err.println("Please enter again");
                     continue;
             }
         }

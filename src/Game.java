@@ -27,6 +27,11 @@ public class Game {
             Position head = snake.body.peekFirst();
             Position tail = snake.body.peekLast();
             Position next = playerStrategy.getNextPosition(head);
+            if(next == null){
+                System.err.println("U are out of game");
+                isGameRunning = false;
+                continue;
+            }
 
             int row = next.row;
             int col = next.col;
