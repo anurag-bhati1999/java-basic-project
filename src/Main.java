@@ -11,5 +11,6 @@ public class Main {
         };
 
         Game game = new Game(15, 20, food, new HumanPlayerStrategy());
+        game.play();
     }
 }
