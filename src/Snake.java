@@ -1,11 +1,13 @@
+
 import java.util.*;
 
 public class Snake {
-    Deque<Position>body;
-    Map<Position, Boolean>positions;
 
-    public Snake(){
-        Position init = new Position(0,0);
+    Deque<Position> body;
+    Map<Position, Boolean> positions;
+
+    public Snake() {
+        Position init = new Position(0, 0);
         body = new ArrayDeque<>();
         body.addFirst(init);
 

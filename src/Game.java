@@ -1,6 +1,4 @@
 
-
-
 public class Game {
 
     private Snake snake;
@@ -68,10 +66,10 @@ public class Game {
         }
     }
 
-    private void printPosistions(){
+    private void printPosistions() {
         System.out.println("......XXXX.....");
         System.out.println("Score is " + this.currScore);
-        System.out.println("Positions "+ snake.body);
+        System.out.println("Positions " + snake.body);
         System.out.println("......XXXX.....");
 
     }
