@@ -8,7 +8,7 @@ public class Cloth extends Product {
         this.brand = builder.brand;
     }
 
-    public static class ClothBuilder extends Product.ProductBuilder<ClothBuilder> {
+    public static class ClothBuilder extends ProductBuilder<ClothBuilder> {
 
         private String brand;
 
