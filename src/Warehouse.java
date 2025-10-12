@@ -1,4 +1,5 @@
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -65,6 +66,10 @@ public class Warehouse {
         } else {
             return 0;
         }
+    }
+
+    public Collection<Product> getAllProducts(){
+        return products.values();
     }
 
 }
