@@ -1,5 +1,5 @@
 
-public class Product {
+public abstract class Product {
 
     private int id;
     private String name;
@@ -8,7 +8,7 @@ public class Product {
     private int price;
     private int threshold;
 
-    private Product(Builder builder) {
+    protected Product(ProductBuilder builder) {
         this.id = builder.id;
         this.name = builder.name;
         this.category = builder.category;
@@ -37,12 +37,12 @@ public class Product {
         return threshold;
     }
 
-    public void setQuantity(int quantity){
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
-    public void addStock(int stock){
-        int total = quantity+stock;
+    public void addStock(int stock) {
+        int total = quantity + stock;
         setQuantity(total);
     }
 
@@ -50,7 +50,7 @@ public class Product {
         return category;
     }
 
-    public static class Builder {
+    public abstract class ProductBuilder<T extends ProductBuilder<T>> {
 
         private int id;
         private String name;
@@ -59,39 +59,39 @@ public class Product {
         private int price;
         private int threshold;
 
-        public Builder setId(int id) {
+        public T setId(int id) {
             this.id = id;
-            return this;
+            return self();
         }
 
-        public Builder setName(String name) {
+        public T setName(String name) {
             this.name = name;
-            return this;
+            return self();
         }
 
-        public Builder setQuantity(int quantity) {
+        public T setQuantity(int quantity) {
             this.quantity = quantity;
-            return this;
+            return self();
         }
 
-        public Builder setCategory(ProductCategory category) {
+        public T setCategory(ProductCategory category) {
             this.category = category;
-            return this;
+            return self();
         }
 
-        public Builder setPrice(int price) {
+        public T setPrice(int price) {
             this.price = price;
-            return this;
+            return self();
         }
 
-        public Builder setThreshold(int threshold) {
+        public T setThreshold(int threshold) {
             this.threshold = threshold;
-            return this;
+            return self();
         }
 
-        public Product build() {
-            return new Product(this);
-        }
+        protected abstract T self();
+
+        public abstract Product build();
 
     }
 
