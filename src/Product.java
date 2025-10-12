@@ -17,6 +17,30 @@ public class Product {
         this.threshold = builder.threshold;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public int getThreshold() {
+        return threshold;
+    }
+
+    public ProductCategory getCategory() {
+        return category;
+    }
+
     public static class Builder {
 
         private int id;
@@ -41,7 +65,7 @@ public class Product {
             return this;
         }
 
-        public Builder setCategory(ProductCategory category){
+        public Builder setCategory(ProductCategory category) {
             this.category = category;
             return this;
         }
