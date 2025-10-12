@@ -4,7 +4,7 @@ public class Grocery extends Product {
     private String expiry;
 
     private Grocery(GroceryBuilder builder) {
-        super(builder);
+        super(builder, ProductCategory.GROCERY);
         this.expiry = builder.expiry;
     }
 

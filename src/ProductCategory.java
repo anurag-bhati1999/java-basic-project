@@ -1,3 +1,3 @@
 public enum ProductCategory{
-    CLOTH, ELECTRIC, FURNITURE
+    CLOTH, ELECTRIC, FURNITURE, GROCERY
 }

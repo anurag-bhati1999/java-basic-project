@@ -1,17 +1,17 @@
 
 public abstract class Product {
 
-    private int id;
-    private String name;
-    private ProductCategory category;
+    private final int id;
+    private final String name;
+    private final ProductCategory category;
     private int quantity;
     private int price;
     private int threshold;
 
-    protected Product(ProductBuilder builder) {
+    protected Product(ProductBuilder builder, ProductCategory category) {
         this.id = builder.id;
         this.name = builder.name;
-        this.category = builder.category;
+        this.category = category;
         this.quantity = builder.quantity;
         this.price = builder.price;
         this.threshold = builder.threshold;
@@ -54,7 +54,6 @@ public abstract class Product {
 
         private int id;
         private String name;
-        private ProductCategory category;
         private int quantity;
         private int price;
         private int threshold;
@@ -71,11 +70,6 @@ public abstract class Product {
 
         public T setQuantity(int quantity) {
             this.quantity = quantity;
-            return self();
-        }
-
-        public T setCategory(ProductCategory category) {
-            this.category = category;
             return self();
         }
 

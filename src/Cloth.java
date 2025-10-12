@@ -4,7 +4,7 @@ public class Cloth extends Product {
     private String brand;
 
     private Cloth(ClothBuilder builder) {
-        super(builder);
+        super(builder, ProductCategory.CLOTH);
         this.brand = builder.brand;
     }
 
