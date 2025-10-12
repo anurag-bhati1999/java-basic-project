@@ -36,7 +36,7 @@ public class Main {
         manager.performInventoryCheck();
 
         warehouse.removeQuantity(product1, 90);
-        warehouse.removeQuantity(product3, 40);
+        warehouse.removeQuantity(product3, 35);
         manager.performInventoryCheck();
     }
 }
