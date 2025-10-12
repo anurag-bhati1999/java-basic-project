@@ -50,7 +50,7 @@ public abstract class Product {
         return category;
     }
 
-    public abstract class ProductBuilder<T extends ProductBuilder<T>> {
+    public abstract static class ProductBuilder<T extends ProductBuilder<T>> {
 
         private int id;
         private String name;
