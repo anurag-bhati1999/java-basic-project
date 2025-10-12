@@ -37,6 +37,15 @@ public class Product {
         return threshold;
     }
 
+    public void setQuantity(int quantity){
+        this.quantity = quantity;
+    }
+
+    public void addStock(int stock){
+        int total = quantity+stock;
+        setQuantity(total);
+    }
+
     public ProductCategory getCategory() {
         return category;
     }
