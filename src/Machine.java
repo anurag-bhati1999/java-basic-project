@@ -82,6 +82,7 @@ public class Machine {
         }
         this.currentState = this.currentState.getNextState();
         this.balance = 0;
+        slot.item = null;
     }
 
     public void cancel() throws Exception {
