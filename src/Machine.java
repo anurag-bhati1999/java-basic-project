@@ -8,6 +8,8 @@ public class Machine {
     MachineState state;
     int balance;
     int totalMoney;
+    MachineState currentState;
+    int selectedCode;
 
     public Machine(int numSlots) {
         this.numSlots = numSlots;
@@ -20,6 +22,66 @@ public class Machine {
 
         this.balance = 0;
         this.totalMoney = 0;
+        this.currentState = new IdleState();
     }
+
+    public void addItem(Item item, int codeNumber) throws Exception {
+        Slot slot = slots.get(codeNumber);
+        boolean isAdded = slot.addItem(item);
+
+        if (!isAdded) {
+            throw new Exception("slot full");
+        }
+    }
+
+    public void clickOnSelectProduct() throws Exception {
+        if (!(currentState instanceof IdleState)) {
+            throw new Exception("Machine is not in idle state");
+        }
+
+        this.currentState = this.currentState.getNextState();
+    }
+
+    public void selectProduct(int codeNumber) throws Exception {
+        if (!(currentState instanceof SelectionState)) {
+            throw new Exception("Machine is not in selection state");
+        }
+        System.err.println("Please select product code");
+        Scanner scanner = new Scanner(System.in);
+        int code = scanner.nextInt();
+        if (codeNumber <= 0 && codeNumber > numSlots) {
+            throw new Exception("INvalid code");
+        }
+        Slot slot = slots.get(codeNumber);
+        if (slot.isEmpty()) {
+            throw new Exception("You selected empty slot");
+        }
+        System.err.println("Please put coins worth" + slot.item.price);
+
+        this.currentState = this.currentState.getNextState();
+    }
+
+    public void insertCoin() throws Exception {
+        if (!(currentState instanceof CoinInsertState)) {
+            throw new Exception("Machine is not in selection state");
+        }
+        int x = 0;
+        x += Coin.TEN_RUPEE.value;
+        this.balance += x;
+        this.totalMoney += x;
+        this.currentState = this.currentState.getNextState();
+    }
+
+    public void clickOnDispense() throws Exception {
+        if (!(currentState instanceof DispenseState)) {
+            throw new Exception("Machine is not in selection state");
+        }
+        Slot slot = slots.get(selectedCode);
+        if (this.balance < slot.item.price) {
+            throw new Exception("coin less");
+        }
+        this.currentState = this.currentState.getNextState();
+    }
+
 
 }
