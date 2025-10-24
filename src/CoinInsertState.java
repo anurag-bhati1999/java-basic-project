@@ -1,5 +1,5 @@
 
-public class CoinInsertState implements MachineState{
+public class CoinInsertState implements MachineState {
 
     public String getStateName() {
         return "Coin Insertion";

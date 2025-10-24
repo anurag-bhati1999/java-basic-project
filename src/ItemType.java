@@ -1,4 +1,5 @@
-public enum ItemType{
+
+public enum ItemType {
     COKE,
     CHIPS,
     BISCUIT

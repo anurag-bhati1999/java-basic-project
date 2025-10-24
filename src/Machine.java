@@ -81,6 +81,7 @@ public class Machine {
             throw new Exception("coin less");
         }
         this.currentState = this.currentState.getNextState();
+        this.balance = 0;
     }
 
     public void cancel() throws Exception {
@@ -95,4 +96,7 @@ public class Machine {
         throw new Exception("Cannot cancel, dispacthed");
     }
 
+    public void printTotalAMount() {
+        System.err.println("Total money " + totalMoney);
+    }
 }
