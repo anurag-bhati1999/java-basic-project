@@ -83,5 +83,16 @@ public class Machine {
         this.currentState = this.currentState.getNextState();
     }
 
+    public void cancel() throw Exception{
+        if(currentState instance of SelectionState){
+            this.currentState = new IdleState();
+        }
+        if(currenState instance of CoinInsertState){
+            this.totalMoney -= this.balance;
+            this.balance = 0;
+             this.currentState = new IdleState();
+        }
+    }
+
 
 }
