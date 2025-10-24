@@ -28,7 +28,6 @@ public class Machine {
     public void addItem(Item item, int codeNumber) throws Exception {
         Slot slot = slots.get(codeNumber);
         boolean isAdded = slot.addItem(item);
-
         if (!isAdded) {
             throw new Exception("slot full");
         }
@@ -56,6 +55,7 @@ public class Machine {
         if (slot.isEmpty()) {
             throw new Exception("You selected empty slot");
         }
+        this.selectedCode = code;
         System.err.println("Please put coins worth" + slot.item.price);
 
         this.currentState = this.currentState.getNextState();
@@ -66,7 +66,28 @@ public class Machine {
             throw new Exception("Machine is not in selection state");
         }
         int x = 0;
-        x += Coin.TEN_RUPEE.value;
+        boolean insert = true;
+        Scanner scanner = new Scanner(System.in);
+        while (insert) {
+            System.err.println("Select y/n");
+            String yn = scanner.next();
+            if (yn.equals("y")) {
+                String coin = scanner.next();
+                if (coin.equals("ten")) {
+                    x += Coin.TEN_RUPEE.value;
+                } else if (coin.equals("five")) {
+                    x += Coin.FIVE_RUPEE.value;
+                } else if (coin.equals("two")) {
+                    x += Coin.TWO_RUPEE.value;
+                } else {
+                    x += Coin.ONE_RUPEE.value;
+                }
+            } else {
+                insert = false;
+                break;
+            }
+        }
+        System.err.println("x "+x);
         this.balance += x;
         this.totalMoney += x;
         this.currentState = this.currentState.getNextState();
