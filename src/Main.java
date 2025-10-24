@@ -12,7 +12,7 @@ public class Main {
             machine.addItem(item2, 2);
             machine.addItem(item3, 3);
             machine.clickOnSelectProduct();
-            machine.selectProduct(2);
+            machine.selectProduct();
             machine.insertCoin();
             machine.clickOnDispense();
             machine.printTotalAMount();

@@ -41,13 +41,13 @@ public class Machine {
         this.currentState = this.currentState.getNextState();
     }
 
-    public void selectProduct(int codeNumber) throws Exception {
+    public void selectProduct() throws Exception {
         if (!(currentState instanceof SelectionState)) {
             throw new Exception("Machine is not in selection state");
         }
         System.err.println("Please select product code");
         Scanner scanner = new Scanner(System.in);
-        int code = scanner.nextInt();
+        int codeNumber = scanner.nextInt();
         if (codeNumber <= 0 && codeNumber > numSlots) {
             throw new Exception("INvalid code");
         }
@@ -55,7 +55,7 @@ public class Machine {
         if (slot.isEmpty()) {
             throw new Exception("You selected empty slot");
         }
-        this.selectedCode = code;
+        this.selectedCode = codeNumber;
         System.err.println("Please put coins worth" + slot.item.price);
 
         this.currentState = this.currentState.getNextState();
@@ -87,7 +87,7 @@ public class Machine {
                 break;
             }
         }
-        System.err.println("x "+x);
+        System.err.println("x " + x);
         this.balance += x;
         this.totalMoney += x;
         this.currentState = this.currentState.getNextState();
