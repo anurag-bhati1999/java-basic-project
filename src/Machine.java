@@ -83,16 +83,16 @@ public class Machine {
         this.currentState = this.currentState.getNextState();
     }
 
-    public void cancel() throw Exception{
-        if(currentState instance of SelectionState){
+    public void cancel() throws Exception {
+        if (currentState instanceof SelectionState) {
             this.currentState = new IdleState();
         }
-        if(currenState instance of CoinInsertState){
+        if (currentState instanceof CoinInsertState) {
             this.totalMoney -= this.balance;
             this.balance = 0;
-             this.currentState = new IdleState();
+            this.currentState = new IdleState();
         }
+        throw new Exception("Cannot cancel, dispacthed");
     }
-
 
 }
