@@ -2,7 +2,8 @@ public class Main {
 
     public static void main(String args[]) {
     //    basicThread();
-        basicRunnable();
+        // basicRunnable();
+        stopThread();
     }
 
     public static void basicThread(){
@@ -27,5 +28,18 @@ public class Main {
         }
         System.out.println("Last Last");
        
+    }
+
+    public static void stopThread(){
+        System.err.println("anurag");
+        StopThread myRunnable= new StopThread();
+        Thread thread = new Thread(myRunnable);
+        thread.start();
+        try {
+            Thread.sleep(30);
+        } catch (Exception e) {
+        }
+       
+        myRunnable.doStop();
     }
 }
