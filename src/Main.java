@@ -1,9 +1,10 @@
 public class Main {
 
     public static void main(String args[]) {
-    //    basicThread();
+        // basicThread();
         // basicRunnable();
-        stopThread();
+        // stopThread();
+        daemon();
     }
 
     public static void basicThread(){
@@ -41,5 +42,18 @@ public class Main {
         }
        
         myRunnable.doStop();
+    }
+
+    public static void daemon() {
+        BasicRunnable myRunnable = new BasicRunnable();
+        Thread thread = new Thread(myRunnable);
+        thread.setDaemon(true);
+        thread.start();
+
+        try {
+            thread.join();
+        } catch (Exception e) {
+            System.out.println("exception throwm");
+        }
     }
 }
