@@ -4,7 +4,8 @@ public class Main {
         // basicThread();
         // basicRunnable();
         // stopThread();
-        daemon();
+        //daemon();
+         virtual();
     }
 
     public static void basicThread(){
@@ -55,5 +56,16 @@ public class Main {
         } catch (Exception e) {
             System.out.println("exception throwm");
         }
+    }
+
+    public static void virtual(){
+        System.out.println("hii");
+        BasicRunnable myRunnable = new BasicRunnable();
+        Thread vThread = Thread.ofVirtual().start(myRunnable);
+    }
+
+    public static void counter(){
+        Counter counter = new Counter();
+        counter.start();
     }
 }
