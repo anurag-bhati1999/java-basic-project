@@ -5,7 +5,8 @@ public class Main {
         // basicRunnable();
         // stopThread();
         //daemon();
-         virtual();
+         //virtual();
+         synch();
     }
 
     public static void basicThread(){
@@ -67,5 +68,14 @@ public class Main {
     public static void counter(){
         Counter counter = new Counter();
         counter.start();
+    }
+
+    public static void synch() {
+        SynchronizeCounter sync1 = new SynchronizeCounter();
+        SynchronizeThread runnable = new SynchronizeThread(sync1);
+        Thread thread1 = new Thread(runnable);
+        Thread thread2 = new Thread(runnable);
+        thread1.start();
+        thread2.start();
     }
 }
