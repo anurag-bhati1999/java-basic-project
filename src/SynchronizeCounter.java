@@ -2,6 +2,7 @@
 public class SynchronizeCounter extends Thread {
 
     private int counter = 0;
+    private static int counter2 =0;
 
     public synchronized void increment() {
         this.counter++;
@@ -21,5 +22,13 @@ public class SynchronizeCounter extends Thread {
         synchronized (this) {
             return this.counter;
         }
+    }
+
+    public static synchronized void increment3(){
+        counter2++;
+    }
+
+    public static synchronized int getCounter3(){
+        return counter2;
     }
 }
