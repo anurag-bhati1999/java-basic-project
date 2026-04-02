@@ -31,4 +31,16 @@ public class SynchronizeCounter extends Thread {
     public static synchronized int getCounter3(){
         return counter2;
     }
+
+     public static void increment4(){
+        synchronized(SynchronizeCounter.class){
+            counter2++;
+        } 
+    }
+
+    public static synchronized int getCounter4(){
+        synchronized(SynchronizeCounter.class){
+            return counter2;
+        } 
+    }
 }
