@@ -8,9 +8,9 @@ public class SynchronizeThread implements Runnable{
 
     public void run(){
         for(int i=0;i<10;i++){
-            counter.increment3();
+            counter.increment2();
             System.out.println(Thread.currentThread().getName()
-            +"->"+ counter.getCounter3()
+            +"->"+ counter.getCounter2()
             );
         }
     }

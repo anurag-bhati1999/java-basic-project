@@ -72,9 +72,11 @@ public class Main {
 
     public static void synch() {
         SynchronizeCounter sync1 = new SynchronizeCounter();
-        SynchronizeThread runnable = new SynchronizeThread(sync1);
-        Thread thread1 = new Thread(runnable);
-        Thread thread2 = new Thread(runnable);
+        SynchronizeCounter sync2 = new SynchronizeCounter();
+        SynchronizeThread runnable1 = new SynchronizeThread(sync1);
+        SynchronizeThread runnable2 = new SynchronizeThread(sync2);
+        Thread thread1 = new Thread(runnable1);
+        Thread thread2 = new Thread(runnable2);
         thread1.start();
         thread2.start();
     }
