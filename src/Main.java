@@ -8,7 +8,8 @@ public class Main {
         //daemon();
         //virtual();
         // synch();
-        volatileImpl();
+        // volatileImpl();
+        falsee();
     }
 
     public static void basicThread() {
@@ -86,7 +87,7 @@ public class Main {
     public static void volatileImpl() {
         VolatileClass class1 = new VolatileClass();
         // Runnable runnable1 = () -> {
-            class1.update();
+        class1.update();
         // };
 
         VolatileClass class2 = new VolatileClass();
@@ -99,6 +100,11 @@ public class Main {
         // thread1.start();
         thread2.start();
 
+    }
+
+    public static void falsee() {
+        FalseSharing falseSharing = new FalseSharing();
+        falseSharing.falseShare();
     }
 
 }
