@@ -1,3 +1,4 @@
+
 public class Main {
 
     public static void main(String args[]) {
@@ -5,44 +6,45 @@ public class Main {
         // basicRunnable();
         // stopThread();
         //daemon();
-         //virtual();
-         synch();
+        //virtual();
+        // synch();
+        volatileImpl();
     }
 
-    public static void basicThread(){
-        Thread thread  = new BasicThread();
+    public static void basicThread() {
+        Thread thread = new BasicThread();
         thread.setName("my thread");
         thread.start();
         System.out.println("anurag bhati");
-        System.out.println("current thread "+ Thread.currentThread().getName());
+        System.out.println("current thread " + Thread.currentThread().getName());
         System.out.println("my thread name  " + thread.getName());
     }
 
-    public static void basicRunnable(){
+    public static void basicRunnable() {
         // System.err.println("anurag");
         Runnable myRunnable = new BasicRunnable();
         Thread thread = new Thread(myRunnable, "my runnable thread");
         thread.start();
         System.out.println("anurag Bhati");
-        System.err.println("my thread "+ thread.getName());
+        System.err.println("my thread " + thread.getName());
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
         }
         System.out.println("Last Last");
-       
+
     }
 
-    public static void stopThread(){
+    public static void stopThread() {
         System.err.println("anurag");
-        StopThread myRunnable= new StopThread();
+        StopThread myRunnable = new StopThread();
         Thread thread = new Thread(myRunnable);
         thread.start();
         try {
             Thread.sleep(30);
         } catch (Exception e) {
         }
-       
+
         myRunnable.doStop();
     }
 
@@ -59,13 +61,13 @@ public class Main {
         }
     }
 
-    public static void virtual(){
+    public static void virtual() {
         System.out.println("hii");
         BasicRunnable myRunnable = new BasicRunnable();
         Thread vThread = Thread.ofVirtual().start(myRunnable);
     }
 
-    public static void counter(){
+    public static void counter() {
         Counter counter = new Counter();
         counter.start();
     }
@@ -80,4 +82,23 @@ public class Main {
         thread1.start();
         thread2.start();
     }
+
+    public static void volatileImpl() {
+        VolatileClass class1 = new VolatileClass();
+        // Runnable runnable1 = () -> {
+            class1.update();
+        // };
+
+        VolatileClass class2 = new VolatileClass();
+        Runnable runnable2 = () -> {
+            class2.get();
+        };
+
+        // Thread thread1 = new Thread(runnable1);
+        Thread thread2 = new Thread(runnable2);
+        // thread1.start();
+        thread2.start();
+
+    }
+
 }
