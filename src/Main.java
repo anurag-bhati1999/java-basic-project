@@ -9,7 +9,8 @@ public class Main {
         //virtual();
         // synch();
         // volatileImpl();
-        falsee();
+        // falsee();
+        playWithThreadLocal();
     }
 
     public static void basicThread() {
@@ -105,6 +106,18 @@ public class Main {
     public static void falsee() {
         FalseSharing falseSharing = new FalseSharing();
         falseSharing.falseShare();
+    }
+
+    public static void playWithThreadLocal() {
+        ThreadLocalCounter counter1 = new ThreadLocalCounter();
+        ThreadLocalCounter counter2 = new ThreadLocalCounter();
+        Runnable runnable1 = new ThreadLocalRunnable(counter1);
+        Runnable runnable2 = new ThreadLocalRunnable(counter2);
+
+        Thread thread1 = new Thread(runnable1);
+        Thread thread2 = new Thread(runnable2);
+        thread1.start();
+        thread2.start();
     }
 
 }
