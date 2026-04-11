@@ -109,13 +109,11 @@ public class Main {
     }
 
     public static void playWithThreadLocal() {
-        ThreadLocalCounter counter1 = new ThreadLocalCounter();
-        ThreadLocalCounter counter2 = new ThreadLocalCounter();
-        Runnable runnable1 = new ThreadLocalRunnable(counter1);
-        Runnable runnable2 = new ThreadLocalRunnable(counter2);
+        ThreadLocalCounter counter = new ThreadLocalCounter();
+        Runnable runnable = new ThreadLocalRunnable(counter);
 
-        Thread thread1 = new Thread(runnable1);
-        Thread thread2 = new Thread(runnable2);
+        Thread thread1 = new Thread(runnable);
+        Thread thread2 = new Thread(runnable);
         thread1.start();
         thread2.start();
     }
