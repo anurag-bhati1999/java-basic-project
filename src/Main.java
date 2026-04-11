@@ -11,7 +11,8 @@ public class Main {
         // volatileImpl();
         // falsee();
         // playWithThreadLocal();
-        InheritableThreadLocalExample.main(args);
+        // InheritableThreadLocalExample.main(args);
+        playThreadSignal();
     }
 
     public static void basicThread() {
@@ -117,6 +118,24 @@ public class Main {
         Thread thread2 = new Thread(runnable);
         thread1.start();
         thread2.start();
+    }
+
+    public static void playThreadSignal() {
+        ThreadSignal threadSignal = new ThreadSignal();
+        Thread thread1 = new Thread(() -> {
+            threadSignal.doWait();
+        });
+        Thread thread2 = new Thread(() -> {
+            threadSignal.doWait();
+        });
+
+        Thread thread3 = new Thread(() -> {
+            threadSignal.doNotify();
+        });
+
+        thread1.start();
+        // thread2.start();
+        thread3.start();
     }
 
 }
