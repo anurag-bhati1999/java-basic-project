@@ -10,7 +10,8 @@ public class Main {
         // synch();
         // volatileImpl();
         // falsee();
-        playWithThreadLocal();
+        // playWithThreadLocal();
+        InheritableThreadLocalExample.main(args);
     }
 
     public static void basicThread() {
