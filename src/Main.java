@@ -12,7 +12,8 @@ public class Main {
         // falsee();
         // playWithThreadLocal();
         // InheritableThreadLocalExample.main(args);
-        playThreadSignal();
+        //playThreadSignal();
+        playDeadlock();
     }
 
     public static void basicThread() {
@@ -136,6 +137,22 @@ public class Main {
         thread1.start();
         // thread2.start();
         thread3.start();
+    }
+
+    public static void playDeadlock() {
+        TreeNode parent = new TreeNode();
+        TreeNode child = new TreeNode();
+
+        Thread thread1 = new Thread(() -> {
+            parent.setChild(child);
+        }, "T1");
+
+        Thread thread2 = new Thread(() -> {
+            child.setParent(parent);
+        }, "T2");
+
+        thread1.start();
+        thread2.start();
     }
 
 }
